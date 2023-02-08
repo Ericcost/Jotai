@@ -1,27 +1,36 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+// icons
 import { AiOutlineHome } from "react-icons/ai";
 import { BsPerson } from "react-icons/bs";
 import { DiReact } from "react-icons/di";
 
-const Navbar = () => {
-  const [active, setActive] = useState('profile');
+// atoms
+import { useAtomValue } from 'jotai';
+import { skillsCountAtom } from '../../stores/Skills/Skills';
+import { fullNameAtom } from '../../stores/User/User';
 
-  const handleActive = () => {
-    setActive((currentActive) => (currentActive === 'home'? 'profile' : 'home'));
-  }
+
+const Navbar = () => {
+  const fullName = useAtomValue(fullNameAtom);
+  const skillsCount = useAtomValue(skillsCountAtom);
 
   return (
     <div className='navbar'>
       <DiReact size={48}/>
       <div className='center'>
         <AiOutlineHome />
-        <Link to="/" onClick={handleActive}>Home</Link>
+        <Link to="/">Home</Link>
       </div>
       <div className='center'>
         <BsPerson />
-        <Link to="/Profile" onClick={handleActive}>Profile</Link>
+        <Link to="/Profile">Profile</Link>
       </div>
+      <section className='header'>
+        <h1>{fullName || 'Inconnu'}</h1>
+        <small>{skillsCount || 0} compétences</small>
+      </section>
     </div>  
   )
 }

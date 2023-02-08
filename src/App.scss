@@ -1,0 +1,83 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #448fb8;
+  margin: -0.5rem;
+  padding: 1rem;
+
+  a {
+    display: inline-block; 
+    text-decoration: inherit;
+    color: #000;
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  .center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 10%;
+    // &:hover {
+    //   transform: translateY(-0.2rem)
+    // }
+  }
+
+  .home {
+    background-color: #fff;
+  }
+
+  .profile {
+    background-color: #448fb8;
+  }
+  
+}
+
+form {
+  margin: 2rem;
+  .name {
+    display: flex;
+    justify-content: space-between;
+    input {
+      border: 1px solid #000;
+      border-radius: 4px;
+      box-shadow: 2px 2px 5px rgba(31, 15, 15, 0.1);
+      width: 100%;
+    }
+  }
+  .skills {
+    input {
+      border: 1px solid #000;
+      border-radius: 4px;
+      box-shadow: 2px 2px 5px rgba(31, 15, 15, 0.1);
+      width: 100%;
+    }
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+  }
+
+}
+
+h1 {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+
+  button {
+    border-radius: 4px;;
+    background-color:#448fb8;
+    width: 20%;
+  }
+}

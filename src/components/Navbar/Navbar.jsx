@@ -28,7 +28,7 @@ const Navbar = () => {
         <Link to="/Profile">Profile</Link>
       </div>
       <section className='header'>
-        <h1>{fullName || 'Inconnu'}</h1>
+        <h3>{fullName || 'Inconnu'}</h3>
         <small>{skillsCount || 0} compétences</small>
       </section>
     </div>  

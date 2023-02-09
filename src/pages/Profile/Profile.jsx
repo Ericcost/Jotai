@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAtom } from 'jotai';
 import { skillsAtom } from '../../stores/Skills/Skills';
 import { firstNameAtom, lastNameAtom } from '../../stores/User/User';
+import { atomWithStorage } from 'jotai/utils';
 
 
 const Profile = () => {
@@ -16,20 +17,20 @@ const Profile = () => {
     });
 
     useEffect(() => {
-        const firstName = localStorage.getItem('firstName');
-        const lastName = localStorage.getItem('lastName');
-        const skills = JSON.parse(localStorage.getItem('skills'));
-        if (firstName && lastName && skills) {
+        const localFirstName = localStorage.getItem('firstName');
+        const localLastName = localStorage.getItem('lastName');
+        const localSkills = JSON.parse(localStorage.getItem('skills'));
+        if (localFirstName && localLastName && localSkills) {
             setFormValues({
-                firstName: firstName,
-                lastName: lastName,
-                skills: skills.join(', ')
+                firstName: localFirstName,
+                lastName: localLastName,
+                skills: localSkills.join(', ')
             });
-            setFirstName(firstName);
-            setLastName(lastName);
-            setSkills(skills);
+            setFirstName(localFirstName);
+            setLastName(localLastName);
+            setSkills(localSkills);
         }
-    }, []);
+    }, []); // array to drain if you wanna use a localStorage // fullfill the arrayt wit firstName, lastName, skills
 
     const handleChange = (event) => {
         setFormValues({...formValues, [event.target.name]: event.target.value });
@@ -43,9 +44,9 @@ const Profile = () => {
         setFirstName(firstName);
         setLastName(lastName);
         setSkills(skills);
-        localStorage.setItem('firstName', firstName);
-        localStorage.setItem('lastName', lastName);
-        localStorage.setItem('skills', JSON.stringify(skills));
+        // localStorage.setItem('firstName', firstName);
+        // localStorage.setItem('lastName', lastName);
+        // localStorage.setItem('skills', JSON.stringify(skills));
     };
 
     return (
@@ -59,7 +60,7 @@ const Profile = () => {
                                 Firstname :
                             </strong> 
                         </label>
-                        <input type='text' id='firstname' name='firstname' value={formValues.firstName} onChange={handleChange}/>
+                        <input type='text' id='firstName' name='firstName' value={formValues.firstName} onChange={handleChange} />
                     </div>
                     <div className="col">
                         <label htmlFor="lastName">
@@ -67,7 +68,7 @@ const Profile = () => {
                                 Lastname : 
                             </strong>
                         </label>
-                        <input type='text' id='lastname' name='lastname' value={formValues.lastName} onChange={handleChange}/>
+                        <input type='text' id='lastName' name='lastName' value={formValues.lastName} onChange={handleChange} />
                     </div>
                 </div>
                 <div className="skills">

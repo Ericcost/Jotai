@@ -1,6 +1,6 @@
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: #448fb8;
   margin: -0.5rem;
@@ -17,12 +17,9 @@
 
   .center {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 10%;
-    // &:hover {
-    //   transform: translateY(-0.2rem)
-    // }
   }
 
   .home {
@@ -31,6 +28,13 @@
 
   .profile {
     background-color: #448fb8;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
 }
@@ -65,9 +69,30 @@ form {
 }
 
 h1 {
-  padding: 0.5rem;
+  margin: 2rem;
+  padding: -0.5rem 0 0.5rem 0;
   display: flex;
   justify-content: center;
+  text-decoration: inherit;
+}
+
+h3 {
+  margin: 0.5rem;
+  padding: -0.5rem 0 0.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+section a {
+  color:#448fb8;
+  margin: 2rem;
+  padding: -0.5rem 0 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  text-decoration: inherit;
+  &:hover {
+    color: #356680;
+  }
 }
 
 .button {
@@ -79,5 +104,27 @@ h1 {
     border-radius: 4px;;
     background-color:#448fb8;
     width: 20%;
+  }
+}
+
+.card-list {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  .card-skills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem 5rem;
+    padding: 1rem;
+    background-color:#448fb8;
+    border: 2px solid #bcb0b0;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgb(20, 1, 1);
+    &:hover {
+      transform: translateY(-0.2rem);
+      background-color: #356680;
+      color: #fff;
+    }
   }
 }
